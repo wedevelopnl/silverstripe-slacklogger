@@ -1,0 +1,29 @@
+{
+    "name": "thewebmen/silverstripe-slacklogger",
+    "description": "Silverstripe slack logger",
+    "type": "silverstripe-vendormodule",
+    "keywords": [
+        "silverstripe",
+        "slack",
+        "log"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [{
+        "name": "Rens Korswagen",
+        "email": "rens@thewebmen.com"
+    }],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "silverstripe/cms": "^4.0",
+        "silverstripe/vendor-plugin": "^1.0",
+        "maknz/slack": "^1.7"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "TheWebmen\\SLackLogger\\": "src/"
+        }
+    }
+}
