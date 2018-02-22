@@ -2,14 +2,16 @@
 
 namespace TheWebmen\SLackLogger;
 
+use Maknz\Slack\Client;
 use Monolog\Handler\AbstractProcessingHandler;
 use Monolog\Logger;
+use SilverStripe\Control\Director;
 
 class SlackHandler extends AbstractProcessingHandler
 {
 
     /**
-     * @var Maknz\Slack\Client
+     * @var Client
      */
     protected $client;
 
@@ -23,7 +25,9 @@ class SlackHandler extends AbstractProcessingHandler
     {
         parent::__construct($level, $bubble);
 
-        $this->client = new \Maknz\Slack\Client($enpoint);
+        $this->client = new Client($enpoint, [
+            'username' => Director::host()
+        ]);
     }
 
     /**
