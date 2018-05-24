@@ -26,7 +26,7 @@ class SlackHandler extends AbstractProcessingHandler
         parent::__construct($level, $bubble);
 
         $this->client = new Client($enpoint, [
-            'username' => Director::host()
+            'username' => $_SERVER['HTTP_HOST']
         ]);
     }
 
@@ -35,7 +35,7 @@ class SlackHandler extends AbstractProcessingHandler
      */
     protected function write(array $record)
     {
-        $this->client->createMessage()->send($record['formatted']);
+        $this->client->createMessage()->send("{$record['formatted']}\n{$_SERVER['REQUEST_URI']}");
     }
 
 }
