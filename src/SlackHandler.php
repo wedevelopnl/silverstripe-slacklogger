@@ -35,7 +35,7 @@ class SlackHandler extends AbstractProcessingHandler
      */
     protected function write(array $record)
     {
-        $this->client->createMessage()->send("{$record['formatted']}\nhttp" . (isset($_SERVER['HTTPS']) ? 's' : '') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+        $this->client->createMessage()->send("{$record['formatted']}\nhttp" . (isset($_SERVER['HTTPS']) ? 's' : '') . "://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}");
     }
 
 }
